@@ -1,0 +1,16 @@
+<h2>Reproductor</h2>
+<video src="assets/video/video.mp4" width="200" #video (timeupdate)="actualizarProgreso($event)"></video>
+
+<button type="button" (click)="play(video)">Play</button>
+<button type="button" (click)="pause(video)">Pause</button>
+<input type="range" min="0" max="100" (input)="cambiarVolumen(video, $event)" [value]="currentVolume">
+<button type="button" (click)="fullScreen(video)">Full screen</button>
+<button type="button" (click)="replay(video)">Reiniciar</button>
+<button type="button" (click)="subirVolumen()">+ volume</button>
+<button type="button" (click)="bajarVolumen()">- volume</button>
+
+<progress [value]="currentTime" [max]="getDuration()" buffer="0.5"></progress>
+
+
+
+
