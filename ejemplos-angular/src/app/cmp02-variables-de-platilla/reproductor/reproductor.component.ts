@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ConnectableObservable } from 'rxjs';
 
 @Component({
   selector: 'app-reproductor',
@@ -9,7 +10,7 @@ export class ReproductorComponent implements OnInit {
   @ViewChild('video') videoElement!: ElementRef;
   currentVolume: number = 0;
   currentTime: number = 0;
-
+  duration: number = 0;
   constructor() {}
 
   ngOnInit(): void {}
@@ -57,8 +58,9 @@ export class ReproductorComponent implements OnInit {
     }
   }
 
-  getDuration(): number {
-    return 0;
+  setDuration() {
+    this.duration = this.videoElement.nativeElement.duration;
+    console.log(this.duration);
   }
 
   actualizarProgreso(event: any): void {

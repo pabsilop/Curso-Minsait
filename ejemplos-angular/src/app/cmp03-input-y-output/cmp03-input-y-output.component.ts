@@ -3,13 +3,21 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-cmp03-input-y-output',
   templateUrl: './cmp03-input-y-output.component.html',
-  styleUrls: ['./cmp03-input-y-output.component.css']
+  styleUrls: ['./cmp03-input-y-output.component.css'],
 })
 export class Cmp03InputYOutputComponent implements OnInit {
+  nombreLeia: string = 'Leia Organa';
+  nombreLuke: string = 'Luke Skywalker';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  muestraEvento(msg: string): void {
+    console.log(msg);
   }
 
+  cambiarNombre(nuevoNombre: any): void {
+    this.nombreLeia = nuevoNombre;
+  }
 }

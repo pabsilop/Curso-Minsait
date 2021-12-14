@@ -1,5 +1,5 @@
 <h2>Reproductor</h2>
-<video src="assets/video/video.mp4" width="200" #video (timeupdate)="actualizarProgreso($event)"></video>
+<video src="assets/video/video.mp4" width="200" #video (timeupdate)="actualizarProgreso($event)" (loadedmetadata)="setDuration()"></video>
 
 <button type="button" (click)="play(video)">Play</button>
 <button type="button" (click)="pause(video)">Pause</button>
@@ -9,7 +9,7 @@
 <button type="button" (click)="subirVolumen()">+ volume</button>
 <button type="button" (click)="bajarVolumen()">- volume</button>
 
-<progress [value]="currentTime" [max]="getDuration()" buffer="0.5"></progress>
+<progress [value]="currentTime" [max]="duration" buffer="0.5"></progress>
 
 
 
