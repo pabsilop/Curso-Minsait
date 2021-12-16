@@ -29,6 +29,10 @@
 <input type="text" (change)="censurarPalabra($event)">
 
 <p>{{texto | reverse}}</p>
+<p>{{'No se si me va a tocar la lotería o no me va a tocar este año' | ocultarPalabras:['no', 'si', 'lotería' ]}}</p>
+
+<pre>{{datosPost1 | async | json}}</pre>
+
 
 
 
