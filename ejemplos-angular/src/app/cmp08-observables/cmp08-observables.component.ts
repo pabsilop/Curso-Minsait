@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, Subscriber } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { filter, fromEvent, map, Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-cmp08-observables',
@@ -8,6 +8,7 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class Cmp08ObservablesComponent implements OnInit {
   mostrarHora: boolean = false;
+  @ViewChild('btnMostrar') boton!: ElementRef;
 
   constructor() {}
 
@@ -28,20 +29,46 @@ export class Cmp08ObservablesComponent implements OnInit {
       }, 6000);
     });
 
-    // miObservable.subscribe({
-    //   next: (msg: string) => {
-    //     console.log(msg);
-    //   },
-    //   error: (err) => {
-    //     console.log('Hay un error', err);
-    //   },
-    //   complete: () => {
-    //     console.log('Ya no vamos a enviar más mensajes');
-    //   },
+    miObservable.subscribe({
+      next: (msg: string) => {
+        console.log(msg);
+      },
+      error: (err) => {
+        console.log('Hay un error', err);
+      },
+      complete: () => {
+        console.log('Ya no vamos a enviar más mensajes');
+      },
+    });
+  }
+
+  ngAfterViewInit() {
+    // fromEvent(this.boton.nativeElement, 'click').subscribe((event) => {
+    //   alert('Has clickado el botón');
     // });
+    fromEvent<MouseEvent>(document, 'mouseover')
+      .pipe(
+        filter((event: MouseEvent) => {
+          // console.log(event)
+          const { clientX, clientY } = event;
+          return clientX > 400 && clientY < 300;
+        }),
+        map((event) => {
+          return { x: event.clientX, y: event.clientY };
+        })
+      )
+
+      .subscribe((event: IPosicionRaton) => {
+        console.log('Estás moviendo el ratón');
+      });
   }
 
   toggleMostrarHora(): void {
     this.mostrarHora = !this.mostrarHora;
   }
+}
+
+interface IPosicionRaton {
+  x: number;
+  y: number;
 }

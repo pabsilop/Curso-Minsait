@@ -1,0 +1,32 @@
+{
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "El niño murcielago reaparece en la playa",
+      "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
+      "authorId": 1
+    },
+    {
+      "titulo": "Aumenta la venta de pitos y flautas",
+      "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
+      "id": 3,
+      "authorId": 1
+    },
+    {
+      "titulo": "He vuelto señores, fino",
+      "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
+      "id": 4,
+      "authorId": 2
+    }
+  ],
+  "autores": [
+    {
+      "id": 1,
+      "nombre": "Ángel"
+    },
+    {
+      "id": 2,
+      "nombre": "Sara"
+    }
+  ]
+}

@@ -14,10 +14,28 @@ export class SuscripcionComponent implements OnInit {
   fechaProximoPago: Date = new Date();
   subscripcionPlataforma: Subscription | null = null;
   cancelarSub$ = new EventEmitter<boolean>();
+  alert: any = {
+    danger: false,
+    info: false,
+    success: false,
+    mensaje: '',
+    mostrar: false,
+  };
 
   constructor(private pagosService: PagosService) {}
 
   ngOnInit(): void {}
+
+  showAlert(mensaje: string, tipo: string): void {
+    this.alert.mostrar = true;
+    this.alert.danger = tipo === 'danger';
+    this.alert.info = tipo === 'info';
+    this.alert.success = tipo === 'success';
+    this.alert.mensaje = mensaje;
+    setTimeout(() => {
+      this.alert.mostrar = false;
+    }, 2000);
+  }
 
   getFechaProximoPago(): Date {
     const fecha = new Date();
@@ -62,9 +80,13 @@ export class SuscripcionComponent implements OnInit {
       // }, 4000)
     });
     this.subscripcionPlataforma = observableSub.subscribe({
-      next: (msg: string) => console.log(msg),
-      error: (err: string) => console.log(err),
-      complete: () => console.log('Ya no estás suscrito'),
+      next: (msg: string) => this.showAlert(msg, 'success'),
+      error: (err: string) => this.showAlert(err, 'danger'),
+      complete: () =>
+        this.showAlert(
+          'Has cancelado la suscripción 😥 te echaremos de menos',
+          'info'
+        ),
     });
   }
 

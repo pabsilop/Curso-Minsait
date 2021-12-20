@@ -30,6 +30,12 @@ import { CmpBComponent } from './cmp07-servicios/cmp-b/cmp-b.component';
 import { Cmp08ObservablesComponent } from './cmp08-observables/cmp08-observables.component';
 import { SuscripcionComponent } from './cmp08-observables/suscripcion/suscripcion.component';
 import { FechaActualComponent } from './cmp08-observables/fecha-actual/fecha-actual.component';
+import { Cmp09HttpComponent } from './cmp09-http/cmp09-http.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TareasService } from './cmp09-http/services/tareas.service';
+import { LogInterceptor } from './cmp09-http/interceptors/log.interceptor';
+import { AuthInterceptor } from './cmp09-http/interceptors/auth.interceptor';
+import { Cmp10AutenticacionComponent } from './cmp10-autenticacion/cmp10-autenticacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +65,14 @@ import { FechaActualComponent } from './cmp08-observables/fecha-actual/fecha-act
     Cmp08ObservablesComponent,
     SuscripcionComponent,
     FechaActualComponent,
+    Cmp09HttpComponent,
+    Cmp10AutenticacionComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

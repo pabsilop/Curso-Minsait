@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  urlFirabaseTareas:
+    'https://ejemplos-dc1c1.firebaseio.com/tareas-indra/pabloS',
 };

@@ -19,21 +19,9 @@
     (click)="activarSuscripcion()">Activar subscripción</button>
   </ng-template>
 
+</div>
 
 
-
-<!--
-  <p *ngIf="subEstado; else noFecha">Fecha próxima renovación: {{fechaProximoPago | date:'hh:mm:ss'}}</p>
-
-  <button type="button" class="btn btn-success" *ngIf="!subEstado; else cancelarBtn" (click)="activarSuscripcion()">Activar subscripción</button>
-
-  <ng-template #cancelarBtn>
-    <button type="button" class="btn btn-danger" (click)="cancelarSubscripcion()">Cancelar subscripción</button>
-  </ng-template>
-
-  <ng-template #noFecha>
-    <p>Fecha próxima renovación: --:--:--</p>
-  </ng-template> -->
-
-
+<div *ngIf="alert.mostrar" class="alert" [ngClass]="{'alert-success': alert.success, 'alert-danger': alert.danger, 'alert-info' : alert.info}" role="alert">
+ {{alert.mensaje}}
 </div>
