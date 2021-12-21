@@ -4,29 +4,43 @@
       "id": 1,
       "titulo": "El niño murcielago reaparece en la playa",
       "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
-      "authorId": 1
+      "userId": 1
     },
     {
       "titulo": "Aumenta la venta de pitos y flautas",
       "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
       "id": 3,
-      "authorId": 1
+      "userId": 1
     },
     {
-      "titulo": "He vuelto señores, fino",
-      "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
-      "id": 4,
-      "authorId": 2
+      "titulo": "Tarea 5",
+      "contenido": "Contenido 5",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "titulo": "Esta es la nueva",
+      "contenido": "SiSi",
+      "userId": 1,
+      "id": 5
     }
   ],
-  "autores": [
+  "users": [
     {
-      "id": 1,
-      "nombre": "Ángel"
+      "username": "pablo",
+      "password": "1234",
+      "nombre": "pablo",
+      "email": "aaa@email.com",
+      "rol": "USER",
+      "id": 1
     },
     {
-      "id": 2,
-      "nombre": "Sara"
+      "username": "pablo",
+      "password": "1234",
+      "nombre": "pablo",
+      "email": "bbb@email.com",
+      "rol": "USER",
+      "id": 2
     }
   ]
 }
