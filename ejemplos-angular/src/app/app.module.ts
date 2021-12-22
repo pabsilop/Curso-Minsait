@@ -43,6 +43,8 @@ import { Error404Component } from './cmp11-routing/error404/error404.component';
 import { Cmp11RoutingComponent } from './cmp11-routing/cmp11-routing.component';
 import { RoutingModule } from './cmp11-routing/app.routes';
 import { EditarUsuarioComponent } from './cmp11-routing/editar-usuario/editar-usuario.component';
+import { Cmp12ModulosYLazyLoadingComponent } from './cmp12-modulos-y-lazy-loading/cmp12-modulos-y-lazy-loading.component';
+import { TarjetasCreditoModule } from './tarjetas-credito/tarjetas-credito.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +82,7 @@ import { EditarUsuarioComponent } from './cmp11-routing/editar-usuario/editar-us
     Error404Component,
     Cmp11RoutingComponent,
     EditarUsuarioComponent,
+    Cmp12ModulosYLazyLoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +90,7 @@ import { EditarUsuarioComponent } from './cmp11-routing/editar-usuario/editar-us
     ReactiveFormsModule,
     HttpClientModule,
     RoutingModule,
+    // TarjetasCreditoModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true },

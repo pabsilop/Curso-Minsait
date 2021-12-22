@@ -5,6 +5,7 @@ import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NuevoUsuarioComponent } from './nuevo-usuario/nuevo-usuario.component';
+import { IsDataSavedGuard } from './guards/is-data-saved.guard';
 
 const USUARIOS_ROUTES: Routes = [
   {
@@ -12,7 +13,8 @@ const USUARIOS_ROUTES: Routes = [
     component: InfoUsuarioComponent,
     canActivate: [IsLoggedInGuard],
   },
-  { path: ':id/editar', component: EditarUsuarioComponent },
+  
+  { path: ':id/editar', component: EditarUsuarioComponent, canDeactivate: [IsDataSavedGuard] },
 ];
 
 const APP_ROUTES: Routes = [
@@ -20,6 +22,7 @@ const APP_ROUTES: Routes = [
   { path: 'usuarios', component: InicioComponent, children: USUARIOS_ROUTES },
   { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
   // { path: 'usuarios/:id', component: InfoUsuarioComponent },
+  { path: 'tarjeta-credito', loadChildren: () =>   import('../tarjetas-credito/tarjetas-credito.module').then(m => m.TarjetasCreditoModule)},
   { path: '**', component: Error404Component },
 ];
 
