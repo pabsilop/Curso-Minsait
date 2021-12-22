@@ -36,6 +36,13 @@ import { TareasService } from './cmp09-http/services/tareas.service';
 import { LogInterceptor } from './cmp09-http/interceptors/log.interceptor';
 import { AuthInterceptor } from './cmp09-http/interceptors/auth.interceptor';
 import { Cmp10AutenticacionComponent } from './cmp10-autenticacion/cmp10-autenticacion.component';
+import { InicioComponent } from './cmp11-routing/inicio/inicio.component';
+import { NuevoUsuarioComponent } from './cmp11-routing/nuevo-usuario/nuevo-usuario.component';
+import { InfoUsuarioComponent } from './cmp11-routing/info-usuario/info-usuario.component';
+import { Error404Component } from './cmp11-routing/error404/error404.component';
+import { Cmp11RoutingComponent } from './cmp11-routing/cmp11-routing.component';
+import { RoutingModule } from './cmp11-routing/app.routes';
+import { EditarUsuarioComponent } from './cmp11-routing/editar-usuario/editar-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,8 +74,20 @@ import { Cmp10AutenticacionComponent } from './cmp10-autenticacion/cmp10-autenti
     FechaActualComponent,
     Cmp09HttpComponent,
     Cmp10AutenticacionComponent,
+    InicioComponent,
+    NuevoUsuarioComponent,
+    InfoUsuarioComponent,
+    Error404Component,
+    Cmp11RoutingComponent,
+    EditarUsuarioComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RoutingModule,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

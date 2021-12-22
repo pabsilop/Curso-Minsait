@@ -12,4 +12,6 @@ router.get("/noticias", NoticiasController.getNoticias);
 //router.use(isTokenValid())
 router.post("/noticias", isTokenValid, NoticiasController.createNoticia);
 
+router.get("/noticias/:id", NoticiasController.getNoticia);
+
 module.exports = router;
