@@ -45,6 +45,9 @@ import { RoutingModule } from './cmp11-routing/app.routes';
 import { EditarUsuarioComponent } from './cmp11-routing/editar-usuario/editar-usuario.component';
 import { Cmp12ModulosYLazyLoadingComponent } from './cmp12-modulos-y-lazy-loading/cmp12-modulos-y-lazy-loading.component';
 import { TarjetasCreditoModule } from './tarjetas-credito/tarjetas-credito.module';
+import { Cmp13InternacionalizacionComponent } from './cmp13-internacionalizacion/cmp13-internacionalizacion.component';
+import { Cmp14TestingComponent } from './cmp14-testing/cmp14-testing.component';
+import { LogueadoComponent } from './cmp14-testing/logueado/logueado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +86,9 @@ import { TarjetasCreditoModule } from './tarjetas-credito/tarjetas-credito.modul
     Cmp11RoutingComponent,
     EditarUsuarioComponent,
     Cmp12ModulosYLazyLoadingComponent,
+    Cmp13InternacionalizacionComponent,
+    Cmp14TestingComponent,
+    LogueadoComponent,
   ],
   imports: [
     BrowserModule,
